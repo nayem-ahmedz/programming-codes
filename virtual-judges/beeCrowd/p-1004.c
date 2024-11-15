@@ -1,4 +1,5 @@
-//simple product
+// 1004 simple product
+
 #include <stdio.h>
 int main() {
     int a, b, res;

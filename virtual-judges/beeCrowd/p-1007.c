@@ -1,4 +1,5 @@
-//Difference between 2 products
+// 1007 Difference between 2 products
+
 #include <stdio.h> 
 int main() {
  

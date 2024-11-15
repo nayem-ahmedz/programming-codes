@@ -1,4 +1,4 @@
-//Salary
+// 1008 Salary
 #include <stdio.h>
 int main() {
     int number, hours;

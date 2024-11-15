@@ -1,4 +1,5 @@
-//simple sum
+// 1003 simple sum
+
 #include <stdio.h>
 int main() {
     int a, b;
