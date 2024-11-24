@@ -16,3 +16,51 @@ Structure of the Factory Pattern:
 4. Client: Uses the Factory to create objects.
 */
 
+
+
+interface OS{
+    String show();
+}
+class Android implements OS{
+    public String show(){
+        return "This is android.";
+    }
+}
+class IOS implements OS{
+    public String show(){
+        return "This is IOS.";
+    }
+}
+interface Maker{
+    OS makeOS();
+}
+class AndroidMaker implements Maker{
+    public OS makeOS(){
+        return new Android();
+    }
+}
+class IOSMaker implements Maker{
+    public OS makeOS(){
+        return new IOS();
+    }
+}
+class Factory{
+    public OS getOS(String name){
+        Maker maker;
+        if(name == "Android"){
+            maker = new AndroidMaker();
+        }
+        else{
+            maker = new IOSMaker(); 
+    }
+       
+   return maker.makeOS();
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Factory factory = new Factory();
+        OS os = factory.getOS("Android");
+        System.out.println(os.show());
+    }
+}
