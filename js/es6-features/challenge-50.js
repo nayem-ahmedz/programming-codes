@@ -29,7 +29,7 @@ city = 'Dhaka';
     var number = 5;
     let numbe2 = 6;
 }
-console.log(number); // number2 is not defined
+// console.log(number); // number2 is not defined
 
 
 // 5. Explain why you should use const for arrays and objects even though their contents can change.
@@ -74,24 +74,24 @@ const sentence = `My name is ${name} and I am ${age} years old`;
 const threeLineStr =`This is a 3
 line string
 created using template literal`;
-console.log(threeLineStr);
+// console.log(threeLineStr);
 
 
 // 13. Create a template literal that calculates and shows the area of a rectangle (length × width).
 const length = 5, width = 4;
 const area = `Area : ${length} x ${width} = ${length * width}`;
-console.log(area);
+// console.log(area);
 
 
 // 14. Use template literals to embed an expression that calculates a discount price
 //     (price - (price * discount / 100)).
 const price = 120, discount = 15;
 const payAmount = `Total Pay: ${price - (price * discount / 100)}`;
-console.log(payAmount);
+// console.log(payAmount);
 
 
 // 15. Create a template literal that prints current year using `new Date().getFullYear()`.
-console.log(`current year is ${new Date().getFullYear()}`);
+// console.log(`current year is ${new Date().getFullYear()}`);
 
 
 // ------------------- 4. Default Parameters -------------------
@@ -118,10 +118,11 @@ function welcome(name= 'user', age = 18){
 
 
 // 20. Write a function that takes a number and prints its power. Default power = 2 (square).
-function getPower(num = 2){
-    (num) ? num ** num : num;
+function getPower(num = 1, power = 2){
+    power = num ** power;
+    return power;
 }
-console.log(getPower());
+// console.log(getPower());
 
 
 // ------------------- 5. Destructuring -------------------
@@ -132,42 +133,91 @@ const [first, , third] = colors;
 
 
 // 22. Skip the second element in an array using destructuring and log the others.
+const numbers = [1, 2, 3, 4, 5, 6];
+const [firstItem, , ...others] = numbers;
+// console.log(firstItem, others);
 
 
-// 23. Given an object {title: "Book", author: "John"}, extract title and author using destructuring.
+// 23. Given an object, extract title and author using destructuring.
+const object = {title: "Book", author: "John"};
+const {title, author} = object;
+// console.log(title, author);
+
 
 // 24. Rename properties during destructuring: extract title as bookTitle from the above object.
+const {title:bookTitle} = object;
+// console.log(bookTitle);
+
 
 // 25. Destructure an object that contains nested properties:
-//     const user = { info: { name: "Nayem", age: 25 } } -> Extract name.
-
+//     Extract name.
+const user = { info: { name: "Nayem", age: 25 } };
+const {info: {name:name2}} = user;
+// console.log(name2);
+const user2 = {name: 'Nayem', frineds: ['Hajifa', 'Jui', 'Ahmed']};
+const {name:name3, frineds: [firstFriend]} = user2;
+// console.log(name3, firstFriend);
 
 // ------------------- 6. Spread Operator -------------------
 
-// 26. Merge two arrays: [1,2,3] and [4,5,6] using spread.
+// 26. Merge two arrays: using spread.
+const arr1 = [1,2,3], arr2 = [4,5,6];
+const mergedArr = [...arr1, ...arr2];
+// console.log(mergedArr);
 
 // 27. Clone an array and add an element at the end using spread.
+const clonedArr1 = [...arr1, 4];
+// console.log(clonedArr1);
 
 // 28. Merge two objects: {a:1, b:2} and {c:3, d:4} using spread.
+const obj1 = {a: 1, b: 2}, obj2 = {c: 3, d: 4};
+const mergedObj = {...obj1, ...obj2};
+// console.log(mergedObj);
 
 // 29. Clone an object and override one property using spread.
+const clonedObj1 = {...obj1, a: 5};
+// console.log(clonedObj1);
 
 // 30. Use spread to convert a string into an array of characters.
+const lastName = 'Ahmed';
+const charset = [...lastName];
+// console.log(charset);
 
 
 // ------------------- 7. Combined ES6 Features -------------------
 
 // 31. Create an arrow function that takes any number of arguments and returns their sum
 //     (Hint: use rest operator).
+const getSum2 = (...params) => {
+    const sum = params.reduce((acc, curr) => acc + curr, 0);
+    console.log(sum);
+}
+// getSum2(1, 2, 3);
 
 // 32. Write a function that accepts an object with name and age and prints "Hello [name], age [age]"
 //     using destructuring in the function parameter.
+const getNameAge = ({nam, boyosh}) => {
+    console.log(nam, boyosh);
+}
+// getNameAge({nam: 'Hajifa', isActive: true, boyosh: 26});
+
 
 // 33. Merge three arrays into one using spread operator.
+const mergedPro = [...arr1, ...arr2, ...mergedArr];
+// console.log(mergedPro);
+
 
 // 34. Copy an object, add a new property "country: 'Bangladesh'" using spread.
+const newObj = {...obj1, country : 'Bangladesh'};
+// console.log(newObj);
+
 
 // 35. Create a function that takes an array and returns the second element using destructuring.
+function getSecondFromArr(array){
+    const [,second] = array;
+    return second;
+}
+// console.log(getSecondFromArr([9,8,7,6,5]));
 
 
 // ------------------- 8. Logical Practice -------------------
